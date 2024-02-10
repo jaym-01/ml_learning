@@ -24,6 +24,10 @@ class Module:
             # use negative sign to decrease the loss
             p.data += -0.05 * p.grad
 
+    def optimise(self, x, ypred, it):
+        for i in range(it):
+            self.train(self(x), ypred)
+
 
 class Neuron:
     def __init__(self, nin):
